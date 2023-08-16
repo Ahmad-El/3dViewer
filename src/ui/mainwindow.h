@@ -1,0 +1,95 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QColorDialog>
+#include "openglgraphics.h"
+#include <QPalette>
+#include <QPixmap>
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+    QColor widgetColor = Qt::black;
+private slots:
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_openFile_clicked();
+
+    void on_minus_x_clicked();
+
+    void on_plus_x_clicked();
+
+    void on_minus_y_clicked();
+
+    void on_plus_y_clicked();
+
+    void on_minus_z_clicked();
+
+    void on_plus_z_clicked();
+
+    void on_move_x_minus_clicked();
+
+    void on_move_x_plus_clicked();
+
+    void on_move_y_minus_clicked();
+
+    void on_move_y_plus_clicked();
+
+    void on_move_z_minus_clicked();
+
+    void on_move_z_plus_clicked();
+
+    void on_scale_down_clicked();
+
+    void on_scale_up_clicked();
+
+    void on_perpective_mode_clicked();
+
+    void on_paralel_mode_clicked();
+
+    void on_pushButton_lineColor_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_move_clicked();
+
+    void on_rotate_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_line_2_clicked();
+
+    void on_pushButtonWidth_clicked();
+
+    void on_pushButton_noDot_clicked();
+
+    void on_pushButton_dot_clicked();
+
+    void on_pushButton_dotSquare_clicked();
+
+    void on_dot_clicked();
+
+    void on_pushButton_dotColor_clicked();
+
+    void on_pushButton_dotSize_clicked();
+
+private:
+    Ui::MainWindow *ui;
+    void initConfig();
+
+};
+#endif // MAINWINDOW_H
+/// https://youtu.be/W3-SMvMa8D4
