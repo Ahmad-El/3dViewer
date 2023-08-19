@@ -2,13 +2,70 @@
 
 openGLGraphics::openGLGraphics(QWidget *parent):QOpenGLWidget (parent)
 {
-    backgroundColor = Qt::black;
+    if(QFile::exists("config.json")){
+        qDebug() << "file is working";
+        readFromJsonFile();
+        loadConfigSettings();
+    } else {
+        initialSettings();
+    }
     setFileName();
-    initLineDotSet();
-    perpectiveMode = false;
-
 }
-void openGLGraphics::initLineDotSet(){
+
+void openGLGraphics::writeToJsonFile(){
+    QJsonDocument jsonDoc(configObject);
+    QFile file("config.json");
+    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    file.write(jsonDoc.toJson());
+    file.close();
+}
+
+
+void openGLGraphics::readFromJsonFile(){
+    QFile configFile("config.json");
+    configFile.open(QIODevice::ReadOnly);
+    QByteArray configData = configFile.readAll();
+    QJsonParseError parseError;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(configData, &parseError);
+    qDebug().noquote() << jsonDoc.toJson(QJsonDocument::Indented);
+    configObject = jsonDoc.object();
+    configFile.close();
+}
+
+void openGLGraphics::loadConfigSettings() {
+    backgroundColor =   configObject["backgroundColor"].toString();
+    filename =          configObject["filename"].toString();
+    perpectiveMode =    configObject["perpectiveMode"].toBool();
+    lineColor =         configObject["lineColor"].toString();
+    dotColor =          configObject["dotColor"].toString();
+    dotObj =            configObject["dotObj"].toBool();
+    lineObj =           configObject["lineObj"].toBool();
+    squareObj =         configObject["squareObj"].toBool();
+    dashObj =           configObject["dashObj"].toBool();
+    lineWidth =         static_cast<float>(configObject["lineWidth"].toDouble());
+    dotSize =           static_cast<float>(configObject["dotSize"].toDouble());
+    gapSize =           static_cast<float>(configObject["gapSize"].toDouble());
+}
+void openGLGraphics::saveConfigSettings(){
+    configObject["backgroundColor"] = backgroundColor.name(QColor::HexArgb);
+    configObject["filename"] = filename;
+    configObject["perpectiveMode"] = perpectiveMode;
+    configObject["lineColor"] = lineColor.name(QColor::HexArgb);
+    configObject["dotColor"] = dotColor.name(QColor::HexArgb);
+    configObject["dotObj"] = dotObj;
+    configObject["lineObj"] = lineObj;
+    configObject["squareObj"] = lineObj;
+    configObject["dashObj"] = dashObj;
+    configObject["lineWidth"] = lineWidth;
+    configObject["dotSize"] = dotSize;
+    configObject["gapSize"] = dotSize;
+}
+
+
+void openGLGraphics::initialSettings(){
+    backgroundColor = Qt::black;
+    filename = "/opt/goinfre/daniellm/school/projects/gitlab/C8_3DViewer_v1.0/C8_3DViewer_v1.0-1/src/frontend/ahmad/models/teddy.obj";
+    perpectiveMode = false;
     lineColor = Qt::white;
     dotColor = Qt::white;
     dotObj = true;
@@ -17,7 +74,11 @@ void openGLGraphics::initLineDotSet(){
     dashObj = false;
     lineWidth = 1.0f;
     dotSize = 1.0f;
-
+    gapSize = 1.0f;
+}
+openGLGraphics::~openGLGraphics(){
+    saveConfigSettings();
+    writeToJsonFile();
 }
 
 void openGLGraphics::initializeGL()
@@ -39,6 +100,7 @@ void openGLGraphics::paintGL()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
+
     float far = fabs(object.z_max) + fabs(object.y_max);
     if(far < 5) {
         far = 5;
@@ -50,55 +112,54 @@ void openGLGraphics::paintGL()
 }
 
 void openGLGraphics::drawObj(){
-    for(int i = 0; i < object.facets_count; i ++ ){
         if(dotObj || squareObj) {
             float r, g, b;
             qColorToRGB(dotColor, r, g, b);
             glColor3f(r, g, b);
-            drawObjDot(i);
+            drawObjDot(0);
         }
         if(lineObj || dashObj) {
             float r, g, b;
             qColorToRGB(lineColor, r, g, b);
             glColor3f(r, g, b);
-            drawObjLine(i);
+            drawObjLine(0);
         }
-    }
 }
 
 
-void openGLGraphics::drawObjDot(int i){
+void openGLGraphics::drawObjDot(int ii){
     glPointSize(dotSize);
     if(dotObj) glEnable(GL_POINT_SMOOTH);
     glBegin(GL_POINTS);
-    for(int j = 0; j < object.facets[i].facet_vertices_count; j++){
-        int coor_id = object.facets[i].vertex_IDs[j];
-        double x = object.vertices[coor_id].x;
-        double y = object.vertices[coor_id].y;
-        double z = object.vertices[coor_id].z;
+    for(int j = 0; j < object.vertices_count; j++){
+        double x = object.vertices[j].x;
+        double y = object.vertices[j].y;
+        double z = object.vertices[j].z;
         glVertex3d(x, y, z);
     }
     glEnd();
     glDisable(GL_POINT_SMOOTH);
 }
 
-void openGLGraphics::drawObjLine(int i){
+void openGLGraphics::drawObjLine(int ii){
     glLineWidth(lineWidth);
     if(dashObj){
     glEnable(GL_LINE_STIPPLE);
-    glLineStipple(4, 0xAAAA);  // if 1 Pattern: 1010 1010 1010 1010
+    glLineStipple(gapSize, 0xAAAA);  // if 1 Pattern: 1010 1010 1010 1010
 }
 
+    for(int i = 0; i < object.facets_count; i ++ ){
+        glBegin(GL_LINE_LOOP);
+        for(int j = 0; j < object.facets[i].facet_vertices_count; j++){
+            int coor_id = object.facets[i].vertex_IDs[j];
+            double x = object.vertices[coor_id].x;
+            double y = object.vertices[coor_id].y;
+            double z = object.vertices[coor_id].z;
+            glVertex3d(x, y, z);
+        }
 
-    glBegin(GL_LINE_LOOP);
-    for(int j = 0; j < object.facets[i].facet_vertices_count; j++){
-        int coor_id = object.facets[i].vertex_IDs[j];
-        double x = object.vertices[coor_id].x;
-        double y = object.vertices[coor_id].y;
-        double z = object.vertices[coor_id].z;
-        glVertex3d(x, y, z);
+        glEnd();
     }
-    glEnd();
     glDisable(GL_LINE_STIPPLE);
 }
 
@@ -139,10 +200,10 @@ void openGLGraphics::changeViewMode()
 }
 
 void openGLGraphics::setFileName(){
+    qDebug() << filename;
     QByteArray ba = filename.toLocal8Bit();
     const char *fname = ba.data();
-    int error = OK;
-    error = getGeometryInfo(fname, &object);
+    int error = getGeometryInfo(fname, &object);
     normalizeObject();
     error ++;
 }

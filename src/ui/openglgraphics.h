@@ -1,15 +1,15 @@
 #ifndef OPENGLGRAPHICS_H
 #define OPENGLGRAPHICS_H
 
-
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QMatrix4x4>
 #include <QMouseEvent>
-
-//#include "mainwindow.h"
-
 #include <QFileDialog>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+
 
 extern "C" {
 #include <../c_code/sources/model_loading.h>
@@ -18,23 +18,27 @@ extern "C" {
 
 #define RGB_MIN 1
 #define RGB_MAX 255
+
 class openGLGraphics : public QOpenGLWidget, public QOpenGLFunctions
 {
 public:
     openGLGraphics(QWidget *parent);
+    ~openGLGraphics();
+
     QColor backgroundColor;
-    QString filename = "/opt/goinfre/daniellm/school/projects/gitlab/C8_3DViewer_v1.0/C8_3DViewer_v1.0-1/src/frontend/ahmad/models/teddy.obj";
-    geometry_info object = {0};
+    QString filename;
     bool perpectiveMode;
-    float rotationAngle = 1.0f;
-    float xRot, yRot, zRot;
-    float centerByX, centerByY, centerByZ;
-    QPoint mPos;
     QColor lineColor, dotColor;
-    bool dotObj, squareObj, noDot;
-    bool lineObj, dashObj, noLine;
+    bool dotObj, squareObj;
+    bool lineObj, dashObj;
     float lineWidth;
     float dotSize;
+    float gapSize;
+
+    QJsonObject configObject;
+    geometry_info object = {0};
+    float xRot, yRot, zRot;
+    QPoint mPos;
 
 public slots:
     void setFileName();
@@ -44,6 +48,11 @@ public slots:
     void changeViewMode();
     void toScreenOrtho();
     void toScreenFrust();
+    void writeToJsonFile();
+    void readFromJsonFile();
+    void initialSettings();
+    void loadConfigSettings();
+    void saveConfigSettings();
 
 protected:
     void initializeGL() override;
@@ -58,7 +67,7 @@ private slots:
     void drawObj();
     void drawObjDot(int i);
     void drawObjLine(int i);
-    void initLineDotSet();
+
 };
 
 #endif // OPENGLGRAPHICS_H

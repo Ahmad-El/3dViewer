@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "openglgraphics.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -9,11 +10,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     initConfig();
 
+
+
 }
 
 MainWindow::~MainWindow()
 {
-    structClean(&ui->widget->object);
+//    structClean(&ui->widget->object);
     delete ui;
 }
 
@@ -47,10 +50,14 @@ void MainWindow::on_pushButton_openFile_clicked()
     QString file =
             QFileDialog::getOpenFileName(this, "Выбрать файл для открытия",
                                          0, "Text Files (*.obj)");
-    structClean(&ui->widget->object);
-    ui->widget->filename = file;
-    ui->widget->setFileName();
-    ui->widget->update();
+    if(file.isEmpty()){
+        qDebug() << "Empty file";
+    } else {
+        structClean(&ui->widget->object);
+        ui->widget->filename = file;
+        ui->widget->setFileName();
+        ui->widget->update();
+    }
 }
 
 void MainWindow::on_minus_x_clicked()
@@ -309,3 +316,39 @@ void MainWindow::on_pushButton_dotSize_clicked()
     ui->widget->dotSize = ui->dotSize->value();
     ui->widget->update();
 }
+
+void MainWindow::on_pushButton_bmpSave_clicked()
+{
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Save Screenshot", "", "BMP Files (*.bmp)");
+    QPixmap screenshot(ui->widget->size());
+    ui->widget->render(&screenshot);
+    screenshot.save(filePath, "BMP");
+
+}
+
+
+void MainWindow::on_pushButton_takeJpeg_clicked()
+{
+    QString filePath = QFileDialog::getSaveFileName(nullptr, "Save Screenshot", "", "JPEG Files (*.jpeg)");
+    QPixmap screenshot(ui->widget->size());
+    ui->widget->render(&screenshot);
+    screenshot.save(filePath, "JPEG");
+}
+
+void MainWindow::on_pushButtonLineGap_clicked()
+{
+    ui->widget->gapSize = ui->lineGapValue->value();
+    ui->widget->update();
+}
+
+
+
+
+
+
+void MainWindow::on_pushButton_save_gif_clicked()
+{
+
+
+}
+

@@ -44,8 +44,7 @@ DISTFILES += \
     ../models/skull.obj \
     ../models/teapot.obj \
     ../models/teddy.obj \
-    ../models/woman.obj
+    ../models/woman.obj \
 
 RESOURCES += \
     resources.qrc
-
