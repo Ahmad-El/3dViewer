@@ -365,12 +365,59 @@ int MainWindow::edgesCounting() {
   return edges_count;
 }
 
+void MainWindow::on_settings_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+
+}
+
+
+
+
+
+
+
+
+
+void MainWindow::startTimer() {
+    gif = new QGifImage(QSize(640, 480));
+    timerGIF = new QTimer(this);
+    connect(timerGIF, &QTimer::timeout, this, &MainWindow::recordGif);
+    timerGIF->start(100);
+    frame = 0;
+}
+
+void MainWindow::recordGif() {
+    if(frame < 50) {
+        const QRect rect(0, 0, 640, 480);
+        QPixmap pixmap = ui->widget->grab(rect);
+        QImage myImage = pixmap.toImage();
+        frame++;
+        gif->addFrame(myImage, 100);  // цифра это задержка
+    } else {
+        timerGIF->stop();
+        gif->save(pFile);
+        pFile->close();
+        delete pFile;
+        delete gif;
+        QMessageBox::about(this, "status", "GIF saved");
+    }
+}
 
 
 
 void MainWindow::on_pushButton_save_gif_clicked()
 {
-
+    QString filename = QFileDialog::getSaveFileName(this, "Сохранить GIF", QDir::homePath(), "*.gif");
+    pFile = new QFile(filename);
+    if (pFile->open(QIODevice::WriteOnly)) {
+        startTimer();
+    } else {
+        qDebug() << "Error occured";
+    }
 
 }
+
+
+
 

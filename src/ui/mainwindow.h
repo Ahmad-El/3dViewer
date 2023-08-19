@@ -6,13 +6,11 @@
 #include "openglgraphics.h"
 #include <QPalette>
 
-//#include <QScreen>
-//#include <QPixmap>
-//#include <QProcess>
-//#include <QTimer>
-//#include <QMovie>
-//#include <QImageWriter>
-//#include <QMessageBox>
+#include "src/3rdParty/giflib/gif_lib.h"
+#include "src/gifimage/qgifimage.h"
+#include <QTimer>
+#include <QMessageBox>
+#include <QFileDialog>
 
 
 QT_BEGIN_NAMESPACE
@@ -67,10 +65,18 @@ private slots:
     void on_pushButtonLineGap_clicked();
     void fileInfoFilling(QFileInfo file_info);
     int edgesCounting();
+    void startTimer();
+    void recordGif();
+    void on_settings_clicked();
+
 private:
     Ui::MainWindow *ui;
     void initConfig();
-
+    QTimer timerUi;
+    QTimer* timerGIF;
+    int frame;
+    QGifImage* gif;
+    QFile* pFile;
 };
 #endif // MAINWINDOW_H
 /// https://youtu.be/W3-SMvMa8D4

@@ -20,13 +20,27 @@ SOURCES += \
     ../c_code/sources/affine.c \
     main.cpp \
     mainwindow.cpp \
-    openglgraphics.cpp
+    openglgraphics.cpp \
+    src/3rdParty/giflib/dgif_lib.c \
+    src/3rdParty/giflib/egif_lib.c \
+    src/3rdParty/giflib/gif_err.c \
+    src/3rdParty/giflib/gif_font.c \
+    src/3rdParty/giflib/gif_hash.c \
+    src/3rdParty/giflib/gifalloc.c \
+    src/3rdParty/giflib/quantize.c \
+    src/gifimage/qgifimage.cpp
 
 HEADERS += \
     ../c_code/3D_viewer.h \
     ../c_code/sources/model_loading.h \
     mainwindow.h \
-    openglgraphics.h
+    openglgraphics.h \
+    src/3rdParty/giflib/gif_hash.h \
+    src/3rdParty/giflib/gif_lib.h \
+    src/3rdParty/giflib/gif_lib_private.h \
+    src/gifimage/qgifglobal.h \
+    src/gifimage/qgifimage.h \
+    src/gifimage/qgifimage_p.h
 
 FORMS += \
     mainwindow.ui
@@ -48,3 +62,6 @@ DISTFILES += \
 
 RESOURCES += \
     resources.qrc
+
+SUBDIRS += \
+    src/gifimage/gifimage.pro
