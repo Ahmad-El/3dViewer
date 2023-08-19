@@ -65,7 +65,8 @@ private slots:
     void on_pushButton_takeJpeg_clicked();
     void on_pushButton_save_gif_clicked();
     void on_pushButtonLineGap_clicked();
-
+    void fileInfoFilling(QFileInfo file_info);
+    int edgesCounting();
 private:
     Ui::MainWindow *ui;
     void initConfig();

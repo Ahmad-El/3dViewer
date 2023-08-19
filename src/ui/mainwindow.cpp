@@ -9,14 +9,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     initConfig();
-
+    QFileInfo file_info(ui->widget->filename);
+    fileInfoFilling(file_info);
 
 
 }
 
 MainWindow::~MainWindow()
 {
-//    structClean(&ui->widget->object);
+    structClean(&ui->widget->object);
     delete ui;
 }
 
@@ -57,6 +58,8 @@ void MainWindow::on_pushButton_openFile_clicked()
         ui->widget->filename = file;
         ui->widget->setFileName();
         ui->widget->update();
+        QFileInfo file_info(file);
+        fileInfoFilling(file_info);
     }
 }
 
@@ -341,7 +344,26 @@ void MainWindow::on_pushButtonLineGap_clicked()
     ui->widget->update();
 }
 
+void MainWindow::fileInfoFilling(QFileInfo file_info) {
+  QString filename = file_info.fileName();
+  QString filepath = file_info.absolutePath();
+  QString filesize = QString::number(file_info.size() / 1000.0);
+  QString v_count = QString::number(ui->widget->object.vertices_count);
+  QString f_count = QString::number(ui->widget->object.facets_count);
+  QString e_count = QString::number(edgesCounting());
+  ui->textEdit->setText(
+      "filename: " + filename + "\nfilepath: " + filepath +
+      "/\n\nfilesize: " + filesize + " kb\n\nvertices count: " + v_count +
+      "\nedges count: " + e_count + "\nfacets count: " + f_count);
+}
 
+int MainWindow::edgesCounting() {
+  int edges_count = 0;
+  for (int i = 0; i < ui->widget->object.facets_count; i++) {
+    edges_count += ui->widget->object.facets->facet_vertices_count;
+  }
+  return edges_count;
+}
 
 
 

@@ -1,5 +1,5 @@
 #include "model_loading.h"
-
+#include <math.h>
 /*void rotation_by_ox(matrix_t *A, double angle) {
     for (int i = 0; i < A->rows; i++) {
         double temp_y = A->matrix[i][1];

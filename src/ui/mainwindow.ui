@@ -206,7 +206,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="home">
      <widget class="QWidget" name="verticalLayoutWidget_2">
@@ -246,9 +246,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="plainTextEdit">
-         <property name="plainText">
-          <string/>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="readOnly">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

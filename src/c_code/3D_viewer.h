@@ -3,9 +3,8 @@
 
 #define _GNU_SOURCE
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <math.h>
+#include <string.h>
 
 enum error_codes { OK, NO_SUCH_FILE_OR_DIRECTORY, INCORRECT_FILE, RAM_ERROR };
 
@@ -25,7 +24,7 @@ typedef struct Geometry {
   int facets_count;
   vertex_t* vertices;
   facet_t* facets;
-  
+
   double x_min;
   double x_max;
   double y_min;
