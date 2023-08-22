@@ -54,143 +54,181 @@
       <height>801</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QWidget" name="verticalLayoutWidget_5">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>230</y>
+       <y>9</y>
        <width>41</width>
-       <height>41</height>
+       <height>791</height>
       </rect>
      </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-home-50.png</normaloff>:/new/prefix1/icons/icons8-home-50.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="rotate">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>270</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-rotate-50.png</normaloff>:/new/prefix1/icons/icons8-rotate-50.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="move">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>310</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-move-50.png</normaloff>:/new/prefix1/icons/icons8-move-50.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="line_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>350</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-line-width-50.png</normaloff>:/new/prefix1/icons/icons8-line-width-50.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="dot">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>390</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-square-border-80.png</normaloff>:/new/prefix1/icons/icons8-square-border-80.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="settings">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>430</y>
-       <width>41</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="icon">
-      <iconset resource="resources.qrc">
-       <normaloff>:/new/prefix1/icons/icons8-settings-80.png</normaloff>:/new/prefix1/icons/icons8-settings-80.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <spacer name="verticalSpacer_11">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-home-50.png</normaloff>:/new/prefix1/icons/icons8-home-50.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rotate">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-rotate-50.png</normaloff>:/new/prefix1/icons/icons8-rotate-50.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="move">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-move-50.png</normaloff>:/new/prefix1/icons/icons8-move-50.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="line_2">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-line-width-50.png</normaloff>:/new/prefix1/icons/icons8-line-width-50.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="dot">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-square-border-80.png</normaloff>:/new/prefix1/icons/icons8-square-border-80.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="settings">
+        <property name="maximumSize">
+         <size>
+          <width>38</width>
+          <height>36</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources.qrc">
+          <normaloff>:/new/prefix1/icons/icons8-settings-80.png</normaloff>:/new/prefix1/icons/icons8-settings-80.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_10">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
@@ -292,6 +330,35 @@
         </layout>
        </item>
        <item>
+        <spacer name="verticalSpacer_12">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="gif_display">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>250</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -337,14 +404,24 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
+       <item row="1" column="0">
         <widget class="QPushButton" name="move_x_minus">
          <property name="text">
           <string>(-)movex</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
+       <item row="3" column="1">
+        <widget class="QDoubleSpinBox" name="z_move_value">
+         <property name="minimum">
+          <double>0.010000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>10.010000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
         <widget class="QDoubleSpinBox" name="x_move_value">
          <property name="minimum">
           <double>0.010000000000000</double>
@@ -354,35 +431,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="move_y_plus">
-         <property name="text">
-          <string>movey(+)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="move_x_plus">
-         <property name="text">
-          <string>movex(+)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="move_y_minus">
-         <property name="text">
-          <string>(-)movey</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="move_z_plus">
-         <property name="text">
-          <string>movez(+)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
+       <item row="2" column="1">
         <widget class="QDoubleSpinBox" name="y_move_value">
          <property name="minimum">
           <double>0.010000000000000</double>
@@ -393,24 +442,55 @@
         </widget>
        </item>
        <item row="2" column="0">
+        <widget class="QPushButton" name="move_y_minus">
+         <property name="text">
+          <string>(-)movey</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="move_z_plus">
+         <property name="text">
+          <string>movez(+)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="0">
         <widget class="QPushButton" name="move_z_minus">
          <property name="text">
           <string>(-)movez</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QDoubleSpinBox" name="z_move_value">
-         <property name="minimum">
-          <double>0.010000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>10.010000000000000</double>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="move_x_plus">
+         <property name="text">
+          <string>movex(+)</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <spacer name="verticalSpacer_2">
+       <item row="2" column="2">
+        <widget class="QPushButton" name="move_y_plus">
+         <property name="text">
+          <string>movey(+)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <spacer name="verticalSpacer_9">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -436,20 +516,20 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QDoubleSpinBox" name="x_rotate_value">
-         <property name="minimum">
-          <double>0.010000000000000</double>
+       <item row="4" column="1">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
-         <property name="maximum">
-          <double>10.010000000000000</double>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
          </property>
-         <property name="singleStep">
-          <double>0.300000000000000</double>
-         </property>
-        </widget>
+        </spacer>
        </item>
-       <item row="1" column="1">
+       <item row="2" column="1">
         <widget class="QDoubleSpinBox" name="y_rotate_value">
          <property name="minimum">
           <double>0.010000000000000</double>
@@ -462,14 +542,14 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
-        <widget class="QPushButton" name="plus_z">
+       <item row="2" column="0">
+        <widget class="QPushButton" name="minus_y">
          <property name="text">
-          <string>rotatez(+)</string>
+          <string>(-)rotatey</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="3" column="1">
         <widget class="QDoubleSpinBox" name="z_rotate_value">
          <property name="minimum">
           <double>0.010000000000000</double>
@@ -482,43 +562,56 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="3" column="0">
         <widget class="QPushButton" name="minus_z">
          <property name="text">
           <string>(-)rotatez</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="plus_y">
+       <item row="3" column="2">
+        <widget class="QPushButton" name="plus_z">
          <property name="text">
-          <string>rotatey(+)</string>
+          <string>rotatez(+)</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QPushButton" name="minus_y">
-         <property name="text">
-          <string>(-)rotatey</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="plus_x">
-         <property name="text">
-          <string>rotatex(+)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
         <widget class="QPushButton" name="minus_x">
          <property name="text">
           <string>(-)rotatex</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <spacer name="verticalSpacer_4">
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="x_rotate_value">
+         <property name="minimum">
+          <double>0.010000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>10.010000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.300000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="plus_x">
+         <property name="text">
+          <string>rotatex(+)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="plus_y">
+         <property name="text">
+          <string>rotatey(+)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <spacer name="verticalSpacer_8">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -544,6 +637,19 @@
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <spacer name="verticalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
@@ -666,6 +772,19 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QPushButton" name="pushButton_noDot">
@@ -774,7 +893,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>210</y>
+      <y>260</y>
       <width>20</width>
       <height>301</height>
      </rect>

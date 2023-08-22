@@ -11,8 +11,7 @@ int getGeometryInfo(const char* filename, geometry_info* pobject) {
     error = NO_SUCH_FILE_OR_DIRECTORY;
   } else {
     getComponentsCount(fp, pobject);
-    if (pobject->vertices_count < 1 || pobject->facets_count < 1)
-      return INCORRECT_FILE;
+    if (pobject->vertices_count < 1) return INCORRECT_FILE;
 
     error = getComponents(fp, pobject);
     getRange(pobject);

@@ -59,6 +59,7 @@ DISTFILES += \
     ../models/teapot.obj \
     ../models/teddy.obj \
     ../models/woman.obj \
+    icons/cube.gif
 
 RESOURCES += \
     resources.qrc

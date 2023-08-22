@@ -51,6 +51,9 @@ int getFacetVertex(char** line, geometry_info* pobject, int ID, int i,
   } else {
     vertex_ID += vertex_id_start;  // ducktape if there are a few groups
   }
+
+  if (vertex_ID - 1 > vertex_id_end) return INCORRECT_FILE;
+
   pobject->facets[ID].vertex_IDs[i] = vertex_ID - 1;
 
   *line += strspn(*line, " -");
